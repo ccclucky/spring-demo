@@ -1,10 +1,10 @@
-package com.cclucky.mcvframework.annotation;
+package com.cclucky.spring.framework.annotation;
 
 import java.lang.annotation.*;
 
-@Target({ElementType.FIELD})
+@Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface Autowired {
+public @interface Controller {
     String value() default  "";
 }

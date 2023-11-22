@@ -1,6 +1,6 @@
-package com.cclucky.mcvframework.servlet;
+package com.cclucky.spring.framework.webmvc.servlet;
 
-import com.cclucky.mcvframework.annotation.*;
+import com.cclucky.spring.framework.annotation.*;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -17,7 +17,10 @@ import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.*;
 
-public class DispatcherServlet extends HttpServlet {
+/**
+ * 简单实现spring的ioc、di、mvc功能
+ */
+public class DispatcherServletDemo extends HttpServlet {
 
     private final Map<String, Object> ioc = new HashMap<>();
 

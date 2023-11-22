@@ -1,7 +1,7 @@
 package com.cclucky.demo.service;
 
-import com.cclucky.mcvframework.annotation.Autowired;
-import com.cclucky.mcvframework.annotation.Service;
+import com.cclucky.spring.framework.annotation.Autowired;
+import com.cclucky.spring.framework.annotation.Service;
 
 @Service
 public class TestServiceImpl implements  ITestService{

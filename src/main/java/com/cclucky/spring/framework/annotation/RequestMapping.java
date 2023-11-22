@@ -1,4 +1,4 @@
-package com.cclucky.mcvframework.annotation;
+package com.cclucky.spring.framework.annotation;
 
 import java.lang.annotation.*;
 

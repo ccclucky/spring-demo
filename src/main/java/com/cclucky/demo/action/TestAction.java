@@ -1,10 +1,10 @@
 package com.cclucky.demo.action;
 
 import com.cclucky.demo.service.ITestService;
-import com.cclucky.mcvframework.annotation.Autowired;
-import com.cclucky.mcvframework.annotation.Controller;
-import com.cclucky.mcvframework.annotation.RequestMapping;
-import com.cclucky.mcvframework.annotation.RequestParam;
+import com.cclucky.spring.framework.annotation.Autowired;
+import com.cclucky.spring.framework.annotation.Controller;
+import com.cclucky.spring.framework.annotation.RequestMapping;
+import com.cclucky.spring.framework.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
