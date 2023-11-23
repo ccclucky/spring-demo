@@ -98,4 +98,8 @@ public class BeanDefinitionReader {
             }
         }
     }
+
+    public Properties getConfig() {
+        return this.contextConfig;
+    }
 }

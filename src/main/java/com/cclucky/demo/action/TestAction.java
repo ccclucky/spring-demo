@@ -5,6 +5,7 @@ import com.cclucky.spring.framework.annotation.Autowired;
 import com.cclucky.spring.framework.annotation.Controller;
 import com.cclucky.spring.framework.annotation.RequestMapping;
 import com.cclucky.spring.framework.annotation.RequestParam;
+import com.cclucky.spring.framework.webmvc.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,13 +21,14 @@ public class TestAction {
     private ITestService testService;
 
     @RequestMapping("/query")
-    public void query(HttpServletRequest req, HttpServletResponse res, @RequestParam("name") String name, String address) throws IOException {
+    public ModelAndView query(HttpServletRequest req, HttpServletResponse res, @RequestParam String name, String address) throws IOException {
         String result = testService.query(name);
         Map<String, Object> model = new HashMap<>();
         model.put("name", name);
         model.put("address", address);
         model.put("data", result);
-        res.getWriter().write(String.valueOf(model));
+//        res.getWriter().write(String.valueOf(model));
+        return new ModelAndView("500", model);
     }
 
 

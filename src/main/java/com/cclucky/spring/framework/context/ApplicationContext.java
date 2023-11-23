@@ -11,6 +11,7 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 public class ApplicationContext {
 
@@ -140,5 +141,9 @@ public class ApplicationContext {
 
     public String[] getBeanDefinitionNames() {
         return this.beanDefinitionMap.keySet().toArray(new String[0]);
+    }
+
+    public Properties getConfig() {
+        return this.reader.getConfig();
     }
 }
