@@ -21,14 +21,15 @@ public class TestAction {
     private ITestService testService;
 
     @RequestMapping("/query")
-    public ModelAndView query(HttpServletRequest req, HttpServletResponse res, @RequestParam String name, String address) throws IOException {
+    public ModelAndView query(HttpServletRequest req, HttpServletResponse res, @RequestParam("name") String name, String address) throws IOException {
         String result = testService.query(name);
         Map<String, Object> model = new HashMap<>();
         model.put("name", name);
         model.put("address", address);
         model.put("data", result);
+        System.out.println("=============ing===========");
 //        res.getWriter().write(String.valueOf(model));
-        return new ModelAndView("500", model);
+        return new ModelAndView("index", model);
     }
 
 
