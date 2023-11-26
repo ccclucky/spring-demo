@@ -148,7 +148,7 @@ public class DispatcherServlet extends HttpServlet {
         return null;
     }
 
-    private void initStrategies(ApplicationContext applicationContext) {
+    private void initStrategies(ApplicationContext applicationContext) throws ClassNotFoundException {
 
         //通过HandlerMapping 将请求影射到控制器
         //HandlerMapping用来保存Controller中配置的RequestMapping和Method的一个对应关系
@@ -178,7 +178,7 @@ public class DispatcherServlet extends HttpServlet {
         }
     }
 
-    private void initHandlerMappings(ApplicationContext applicationContext) {
+    private void initHandlerMappings(ApplicationContext applicationContext) throws ClassNotFoundException {
         if (this.context.getBeanDefinitionCount() == 0) return;
 
         String[] beanNames = this.context.getBeanDefinitionNames();
@@ -215,7 +215,11 @@ public class DispatcherServlet extends HttpServlet {
         context = new ApplicationContext(config.getInitParameter("contextConfigLocation"));
 
         // MVC
-        initStrategies(context);
+        try {
+            initStrategies(context);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
         System.out.println("spring framework is init");
     }

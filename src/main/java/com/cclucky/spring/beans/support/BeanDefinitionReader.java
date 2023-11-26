@@ -1,6 +1,8 @@
 package com.cclucky.spring.beans.support;
 
 import com.cclucky.spring.beans.config.BeanDefinition;
+import com.cclucky.spring.framework.annotation.Controller;
+import com.cclucky.spring.framework.annotation.Service;
 
 import java.io.File;
 import java.io.IOException;
@@ -34,6 +36,10 @@ public class BeanDefinitionReader {
                 Class<?> beanClass = Class.forName(className);
 
                 if (beanClass.isInterface()) continue;
+
+                if (!(beanClass.isAnnotationPresent(Service.class) || beanClass.isAnnotationPresent(Controller.class))) {
+                    continue;
+                }
 
                 // 默认用类名首字母小写作为beanName
                 result.add(doCreateBeanDefinition(toLowerFirstCase(beanClass.getSimpleName()), beanClass.getName()));

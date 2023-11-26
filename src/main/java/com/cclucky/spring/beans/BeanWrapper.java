@@ -7,7 +7,7 @@ public class BeanWrapper {
 
     public BeanWrapper(Object instance) {
         this.wrapperInstance = instance;
-        this.wrapperClass = this.wrapperInstance.getClass();
+        this.wrapperClass = instance.getClass();
     }
 
     public Object getWrapperInstance() {
