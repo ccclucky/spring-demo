@@ -1,6 +1,8 @@
 package com.cclucky.spring.framework.aop;
 
+import com.cclucky.demo.aspect.LogAspect;
 import com.cclucky.spring.framework.aop.aspect.Advice;
+import com.cclucky.spring.framework.aop.config.AopConfig;
 import com.cclucky.spring.framework.aop.support.AdviceSupport;
 
 import java.lang.reflect.InvocationHandler;
@@ -17,10 +19,12 @@ public class JdkDynamicAopProxy implements InvocationHandler {
         this.config = config;
     }
 
-    public Object getProxy() {
-        ClassLoader classLoader = this.getClass().getClassLoader();
+    public <T> T getProxy() {
+        ClassLoader classLoader = this.config.getTargetClass().getClassLoader();
         Class<?>[] interfaces = this.config.getTargetClass().getInterfaces();
-        return Proxy.newProxyInstance(classLoader, interfaces, this);
+        @SuppressWarnings("unchecked")
+        T instance = (T) Proxy.newProxyInstance(classLoader, interfaces, this);
+        return instance;
     }
 
     @Override
